@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Settlers_of_Catan.Model;
+using Settlers_of_Catan.View;
 
 namespace Settlers_of_Catan.Controller
 {
@@ -9,6 +10,7 @@ namespace Settlers_of_Catan.Controller
     {
         private PlayerController playerController;
         private BoardController boardController;
+        private BoardView boardView;
         private bool GameHasAWinner;
         private static short TotalTurns;
 
@@ -16,6 +18,7 @@ namespace Settlers_of_Catan.Controller
         {
             playerController = new PlayerController();
             boardController = new BoardController();
+            boardView = new BoardView();
             GameHasAWinner = false;
             TotalTurns = 0;
         }

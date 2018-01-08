@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using System.Text;
 using Settlers_of_Catan.Model;
+using Settlers_of_Catan.View;
 
 namespace Settlers_of_Catan.Controller
 {
     class BoardController
     {
-        public Board Board;
+        private Board Board;
+        private BoardView BoardView;
 
         public BoardController()
         {
             Board = new Board();
+            BoardView = new BoardView();
         }
 
         // Controller Methods
@@ -26,17 +29,12 @@ namespace Settlers_of_Catan.Controller
 
                 Board.AddTileToBoard((Tile.Type)RandomNumberTileType, RandomNumberTileNumber, i);
             }            
-        }
+        }        
 
         // Print Board
         public void PrintBoard()
         {
-            byte counter = 0;
-            foreach (Tile tile in Board.Tiles)
-            {
-                Console.WriteLine("Tile Position: " + counter + " Tile Number: " + tile.TileNumber + " Tile Type: " + tile.TileType);
-                counter++;
-            }
+            BoardView.PrintBoard(Board.Tiles);
         }
     }
 }

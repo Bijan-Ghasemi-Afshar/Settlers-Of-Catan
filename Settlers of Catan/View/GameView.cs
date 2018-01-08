@@ -6,5 +6,8 @@ namespace Settlers_of_Catan.View
 {
     class GameView
     {
+
+        
+
     }
 }
