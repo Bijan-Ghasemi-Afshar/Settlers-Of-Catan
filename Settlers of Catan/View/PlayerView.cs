@@ -7,6 +7,15 @@ namespace Settlers_of_Catan.View
 {
     class PlayerView
     {
+        public void PrintMessage(string message)
+        {
+            Console.WriteLine(message);
+        }
+
+        public void PrintNumberOfPlayers(byte numberOfPlayers)
+        {
+            Console.WriteLine("Number of players: " + numberOfPlayers);
+        }
 
         public void PrintPlayers(Player[] players)
         {
@@ -18,6 +27,21 @@ namespace Settlers_of_Catan.View
                 Console.WriteLine("Settlement: " + player.PackOfPiece.Settlement.NumberOfPieces);
                 Console.WriteLine("City: " + player.PackOfPiece.City.NumberOfPieces);
             }
+        }
+
+        public void PrintPlayerAdded(string name)
+        {
+            Console.WriteLine("Player " + name + " is added.");
+        }
+
+        public void AskForPlayerNumber()
+        {
+            Console.Write("Enter the number of players: ");
+        }
+
+        public void AskForPlayerName(byte playerNumber)
+        {
+            Console.Write("Enter the name of player " + playerNumber + ": ");
         }
 
     }

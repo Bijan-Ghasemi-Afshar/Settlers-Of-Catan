@@ -36,50 +36,70 @@ namespace Settlers_of_Catan.Controller
             byte NumberOfPlayers = 0;
             do
             {
-                Console.Write("Enter the number of players: ");
+                PlayerView.AskForPlayerNumber();
                 try
                 {
                     NumberOfPlayers = Byte.Parse(Console.ReadLine());
 
                     if (NumberOfPlayers == 0 || !(NumberOfPlayers.GetType().Equals(NumberOfPlayers.GetType())))
-                        Console.WriteLine("Please enter a positive number");
+                        PlayerView.PrintMessage("Please enter a positive number");                        
+
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Please enter a positive number");
+                    PlayerView.PrintMessage("Please enter a positive number");
                 }
 
             } while (NumberOfPlayers <= 0);
 
             // Setting the number of players
             SetNumberOfPlayers(NumberOfPlayers);
-            Console.WriteLine("Number of players: " + NumberOfPlayers);
+            PlayerView.PrintNumberOfPlayers(NumberOfPlayers);
+            
 
-            // Getting the name of the players
+            // Getting the name of the players and setting the players
             string NameOfThePlayer = null;
             for (byte i = 0; i < NumberOfPlayers; i++)
             {
                 do
                 {
-                    Console.Write("Enter the name of player " + (i + 1) + ": ");
+
+                    PlayerView.AskForPlayerName((byte)(i+1));
                     try
                     {
                         NameOfThePlayer = Console.ReadLine();
                     }
                     catch (Exception e)
                     {
-                        Console.Write(e + "\nEnter the name of player " + (i + 1) + ": ");
+                        PlayerView.AskForPlayerName((byte)(i + 1));
                     }
 
                     // Adding the player to the game
                     CreatePlayer(NameOfThePlayer, i);
-                    Console.WriteLine("Player " + NameOfThePlayer + " is added.");
+                    PlayerView.PrintPlayerAdded(NameOfThePlayer);
+
                 } while (NumberOfPlayers <= 0);
             }
         }
 
+        // Reorder Players
+        public void ReorderPlayers()
+        {
+            // Need to be written
+            //byte max = 0;
+            //Random random = new Random();
+            //for(byte i=0; i<Players.Length; i++)
+            //{
+            //    for (byte j=(byte)(Players.Length-i); j>=0; j--)
+            //    {
+            //        if (random.Next(2, 13) > max)
+            //            max = j;
+            //    }
+            //}
+        }
+
         // Printing Players
-        public void PrintThePlayers()
+        public void PrintPlayers()
         {
 
             PlayerView.PrintPlayers(Players);

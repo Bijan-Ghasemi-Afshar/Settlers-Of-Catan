@@ -8,6 +8,11 @@ namespace Settlers_of_Catan.View
     class BoardView
     {
 
+        public void PrintMessage(string message)
+        {
+            Console.WriteLine(message);
+        }
+
         public void PrintBoard(Tile[] tiles)
         {
             byte counter = 0;
@@ -16,7 +21,7 @@ namespace Settlers_of_Catan.View
                 Console.WriteLine("Tile Position: " + counter + " Tile Number: " + tile.TileNumber + " Tile Type: " + tile.TileType);
                 counter++;
             }
-        }
+        }        
 
     }
 }

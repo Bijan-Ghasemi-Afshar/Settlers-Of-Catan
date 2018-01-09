@@ -7,7 +7,10 @@ namespace Settlers_of_Catan.View
     class GameView
     {
 
-        
+        public void PrintMessage(string message)
+        {
+            Console.WriteLine(message);
+        }
 
     }
 }

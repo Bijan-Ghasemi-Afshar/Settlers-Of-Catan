@@ -19,7 +19,7 @@ namespace Settlers_of_Catan.Controller
 
         // Controller Methods
         public void CreateBoard()
-        {
+        {            
             Random random = new Random();
             for (byte i=0; i<Board.NumberOfTiles; i++)
             {                
@@ -34,7 +34,9 @@ namespace Settlers_of_Catan.Controller
         // Print Board
         public void PrintBoard()
         {
+            BoardView.PrintMessage("Board:");
             BoardView.PrintBoard(Board.Tiles);
+            BoardView.PrintMessage("\n");
         }
     }
 }

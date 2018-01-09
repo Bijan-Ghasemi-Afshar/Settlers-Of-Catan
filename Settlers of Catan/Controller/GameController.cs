@@ -11,6 +11,7 @@ namespace Settlers_of_Catan.Controller
         private PlayerController playerController;
         private BoardController boardController;
         private BoardView boardView;
+        private GameView gameView;
         private bool GameHasAWinner;
         private static short TotalTurns;
 
@@ -19,6 +20,7 @@ namespace Settlers_of_Catan.Controller
             playerController = new PlayerController();
             boardController = new BoardController();
             boardView = new BoardView();
+            gameView = new GameView();
             GameHasAWinner = false;
             TotalTurns = 0;
         }
@@ -28,15 +30,22 @@ namespace Settlers_of_Catan.Controller
         
         // Initialiser
         public void Launcher()
-        {
-            Console.WriteLine("Creating the board");
+        {            
+            // Creating the board
             boardController.CreateBoard();
-            boardController.PrintBoard();
-            Console.WriteLine("Board Created.\n\n");
+            boardController.PrintBoard();                     
 
+            // Adding the players
             playerController.AddPlayers();
-            playerController.PrintThePlayers();
+            playerController.PrintPlayers();
+
+            // Reorder players
+            playerController.ReorderPlayers();
+
+            // Run the game
+            GameRunner();
         }
+        
 
         // Game Runner
         public void GameRunner()
