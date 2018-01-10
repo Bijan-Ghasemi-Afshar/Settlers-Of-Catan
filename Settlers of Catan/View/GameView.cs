@@ -12,5 +12,16 @@ namespace Settlers_of_Catan.View
             Console.WriteLine(message);
         }
 
+        public void PrintTurn(int totalTurns, string name)
+        {
+            Console.WriteLine("_________________" + "Turn: " + totalTurns + "_________________");
+            Console.WriteLine( name + "'s turn to play");
+        }
+
+        public void AskForPlayerMove()
+        {
+            Console.WriteLine("Would you like to make a move?");
+        }
+
     }
 }

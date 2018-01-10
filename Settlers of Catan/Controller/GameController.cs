@@ -8,27 +8,28 @@ namespace Settlers_of_Catan.Controller
 {
     class GameController
     {
+        #region Fields
         private PlayerController playerController;
         private BoardController boardController;
         private BoardView boardView;
-        private GameView gameView;
-        private bool GameHasAWinner;
-        private static short TotalTurns;
+        private GameView gameView;        
+        private static int TotalTurns;
+        #endregion
 
+        #region Constructor
         public GameController()
         {
             playerController = new PlayerController();
             boardController = new BoardController();
             boardView = new BoardView();
-            gameView = new GameView();
-            GameHasAWinner = false;
+            gameView = new GameView();            
             TotalTurns = 0;
         }
+        #endregion
 
-        
-        // Controller Methods
-        
-        // Initialiser
+        #region Controller Methods
+
+        // Game Launcher
         public void Launcher()
         {            
             // Creating the board
@@ -45,15 +46,27 @@ namespace Settlers_of_Catan.Controller
             // Run the game
             GameRunner();
         }
-        
-
+                
         // Game Runner
         public void GameRunner()
         {
             do
             {
 
-            } while (!GameHasAWinner);
+                TotalTurns++;
+                gameView.PrintTurn(TotalTurns, PlayerToPlay(TotalTurns));
+                gameView.AskForPlayerMove();
+                // Get players input 
+                try
+                {
+                    Console.ReadLine();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+
+            } while (!HasWinner());
         }
 
         // Rolling The Dice
@@ -68,6 +81,13 @@ namespace Settlers_of_Catan.Controller
         {
             return playerController.HasWinner();
         }
-                
+
+        // Get player who has to play this turn
+        public string PlayerToPlay(int totalTurn)
+        {
+            return playerController.GetPlayerToPlay(totalTurn);
+        }
+
+        #endregion
     }
 }

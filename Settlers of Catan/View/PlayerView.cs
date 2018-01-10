@@ -44,5 +44,14 @@ namespace Settlers_of_Catan.View
             Console.Write("Enter the name of player " + playerNumber + ": ");
         }
 
+        public void PrintReorderedPlayers(Player[] players)
+        {
+            Console.WriteLine("\nThis is the order of turns for players");
+            foreach (Player player in players)
+            {
+                Console.WriteLine(player.Name);
+            }
+        }
+
     }
 }
