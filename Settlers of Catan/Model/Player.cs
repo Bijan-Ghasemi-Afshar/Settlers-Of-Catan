@@ -10,6 +10,12 @@ namespace Settlers_of_Catan.Model
         public string Name { get; set; }
         public PiecePack PackOfPiece { get; set; }
         public byte Points { get; set; }
+        public byte Brick { get; set; }
+        public byte Wool { get; set; }
+        public byte Ore { get; set; }
+        public byte Grain { get; set; }
+        public byte Lumber { get; set; }
+        public byte Nothing { get; set; }
 
         public Player(string name)
         {

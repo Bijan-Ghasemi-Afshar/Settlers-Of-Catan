@@ -9,12 +9,12 @@ namespace Settlers_of_Catan.Model
         // Creating an enum type for tile types
         public enum Type { Hill=0, Pasture=1, Mountain=2, Field=3, Forest=4, Desert=5 }
 
-        // Creating an enum type for tile product types
-        public enum ProductType { Brick=0, Wool=1, Ore=2, Grain=3, Lumber=4, Nothing=5 }
+        // Creating an enum type for tile resource types
+        public enum ResourceType { Brick=0, Wool=1, Ore=2, Grain=3, Lumber=4, Nothing=5 }
 
 
         public Type TileType { get; set; }
-        public ProductType TileProductType { get; set; }
+        public ResourceType TileProductType { get; set; }
         public byte TileNumber { get; set; }
 
 
@@ -24,32 +24,32 @@ namespace Settlers_of_Catan.Model
             {
                 case Type.Desert:
                     this.TileType = Type.Desert;
-                    this.TileProductType = ProductType.Nothing;
+                    this.TileProductType = ResourceType.Nothing;
                     this.TileNumber = tileNumber;
                     break;
                 case Type.Field:
                     this.TileType = Type.Field;
-                    this.TileProductType = ProductType.Grain;
+                    this.TileProductType = ResourceType.Grain;
                     this.TileNumber = tileNumber;
                     break;
                 case Type.Forest:
                     this.TileType = Type.Forest;
-                    this.TileProductType = ProductType.Lumber;
+                    this.TileProductType = ResourceType.Lumber;
                     this.TileNumber = tileNumber;
                     break;
                 case Type.Hill:
                     this.TileType = Type.Hill;
-                    this.TileProductType = ProductType.Brick;
+                    this.TileProductType = ResourceType.Brick;
                     this.TileNumber = tileNumber;
                     break;
                 case Type.Mountain:
                     this.TileType = Type.Mountain;
-                    this.TileProductType = ProductType.Ore;
+                    this.TileProductType = ResourceType.Ore;
                     this.TileNumber = tileNumber;
                     break;
                 case Type.Pasture:
                     this.TileType = Type.Pasture;
-                    this.TileProductType = ProductType.Wool;
+                    this.TileProductType = ResourceType.Wool;
                     this.TileNumber = tileNumber;
                     break;
                 default:
