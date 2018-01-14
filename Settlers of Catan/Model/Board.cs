@@ -10,7 +10,7 @@ namespace Settlers_of_Catan.Model
         public Tile[] Tiles { get; set; }
         public const byte NumberOfTiles = 19;
 
-        public Board()
+    public Board()
         {
             Tiles = new Tile[NumberOfTiles];
         }

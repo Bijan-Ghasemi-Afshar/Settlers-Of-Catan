@@ -8,35 +8,35 @@ namespace Settlers_of_Catan.Controller
 {
     class BoardController
     {
-        private Board Board;
-        private BoardView BoardView;
+        private Board _board;
+        private BoardView _boardView;
 
         public BoardController()
         {
-            Board = new Board();
-            BoardView = new BoardView();
+            _board = new Board();
+            _boardView = new BoardView();
         }
 
         // Controller Methods
         public void CreateBoard()
         {            
             Random random = new Random();
-            for (byte i=0; i<Board.NumberOfTiles; i++)
+            for (byte i=0; i< Board.NumberOfTiles; i++)
             {                
                 byte RandomNumberTileType = (byte)random.Next(0, 5);
                 byte RandomNumberTilePosition = (byte)random.Next(0, 19);
                 byte RandomNumberTileNumber = (byte)random.Next(2, 13);
 
-                Board.AddTileToBoard((Tile.Type)RandomNumberTileType, RandomNumberTileNumber, i);
+                _board.AddTileToBoard((Tile.Type)RandomNumberTileType, RandomNumberTileNumber, i);
             }            
         }        
 
         // Print Board
         public void PrintBoard()
         {
-            BoardView.PrintMessage("Board:");
-            BoardView.PrintBoard(Board.Tiles);
-            BoardView.PrintMessage("\n");
+            _boardView.PrintMessage("Board:");
+            _boardView.PrintBoard(_board.Tiles);
+            _boardView.PrintMessage("\n");
         }
     }
 }

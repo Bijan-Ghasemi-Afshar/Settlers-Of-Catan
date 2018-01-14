@@ -4,6 +4,7 @@ Tile
 PiecePack
 Piece
 Board
+DevelopmentCard
 
 Controller:
 GameController
@@ -12,6 +13,7 @@ TileController
 PiecePackController
 PieceController
 BoardController
+DevelopmentCardController
 
 View:
 GameView

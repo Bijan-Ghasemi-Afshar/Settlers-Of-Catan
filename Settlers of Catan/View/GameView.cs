@@ -23,5 +23,15 @@ namespace Settlers_of_Catan.View
             Console.WriteLine("Would you like to make a move?");
         }
 
+        public void AskToPlacePieceInitially(string playerName)
+        {
+            Console.WriteLine( "\n" + playerName + " place a settlement and a road connected to it on an appropriate position.");
+        }
+
+        public void AskToPlacePiece()
+        {
+            Console.WriteLine("Please place your piece on an appropriate position.");
+        }
+
     }
 }

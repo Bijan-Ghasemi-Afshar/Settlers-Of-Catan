@@ -11,12 +11,14 @@ namespace Settlers_of_Catan.Controller
         #region Fields
         private Player[] Players;
         private PlayerView PlayerView;
+        public byte NumberOfPlayers { get; set; }
         #endregion
 
         #region Constructor
         public PlayerController()
         {
             PlayerView = new PlayerView();
+            NumberOfPlayers = 0;
         }
         #endregion
 
@@ -37,15 +39,15 @@ namespace Settlers_of_Catan.Controller
         public void AddPlayers()
         {
             // Getting the number of players
-            byte NumberOfPlayers = 0;
+            byte NumOfPlayers = 0;
             do
             {
                 PlayerView.AskForPlayerNumber();
                 try
                 {
-                    NumberOfPlayers = Byte.Parse(Console.ReadLine());
+                    NumOfPlayers = Byte.Parse(Console.ReadLine());
 
-                    if (NumberOfPlayers == 0 || !(NumberOfPlayers.GetType().Equals(NumberOfPlayers.GetType())))
+                    if (NumOfPlayers == 0 || !(NumOfPlayers.GetType().Equals(NumOfPlayers.GetType())))
                         PlayerView.PrintMessage("Please enter a positive number");
 
                 }
@@ -54,16 +56,16 @@ namespace Settlers_of_Catan.Controller
                     PlayerView.PrintMessage("Please enter a positive number");
                 }
 
-            } while (NumberOfPlayers <= 0);
+            } while (NumOfPlayers <= 0);
 
             // Setting the number of players
-            SetNumberOfPlayers(NumberOfPlayers);
-            PlayerView.PrintNumberOfPlayers(NumberOfPlayers);
+            SetNumberOfPlayers(NumOfPlayers);
+            PlayerView.PrintNumberOfPlayers(NumOfPlayers);
 
 
             // Getting the name of the players and setting the players
             string NameOfThePlayer = null;
-            for (byte i = 0; i < NumberOfPlayers; i++)
+            for (byte i = 0; i < NumOfPlayers; i++)
             {
                 do
                 {
@@ -80,9 +82,10 @@ namespace Settlers_of_Catan.Controller
 
                     // Adding the player to the game
                     CreatePlayer(NameOfThePlayer, i);
+                    NumberOfPlayers++;
                     PlayerView.PrintPlayerAdded(NameOfThePlayer);
 
-                } while (NumberOfPlayers <= 0);
+                } while (NumOfPlayers <= 0);
             }
         }
 
@@ -90,10 +93,12 @@ namespace Settlers_of_Catan.Controller
         public void ReorderPlayers()
         {
             // Algorithm to randomise players based on a value given by throwing a dice            
-            byte max = 0, position = 0;
+            byte max = 0, playerWithTheHighest = 0;
             Random random = new Random();
             for (byte i = 0; i < Players.Length; i++)
             {
+                // Set to minimum every loop for each position
+                max = 0;
                 for (int j = (Players.Length - 1); j >= 0; j--)
                 {
                     // Like throwing a dice to see who gets the highest to reorder players
@@ -101,12 +106,12 @@ namespace Settlers_of_Catan.Controller
                     if (randomNumber > max)
                     {
                         max = randomNumber;
-                        position = (byte)j;
+                        playerWithTheHighest = (byte)j;
                     }
                 }
                 Player container = Players[i];
-                Players[i] = Players[position];
-                Players[position] = container;
+                Players[i] = Players[playerWithTheHighest];
+                Players[playerWithTheHighest] = container;
             }
 
             // Printing reordered players
@@ -140,6 +145,12 @@ namespace Settlers_of_Catan.Controller
                 return Players[Players.Length - 1].Name;
 
             return Players[x-1].Name;
+        }
+
+        // Get player name
+        public string GetPlayerName(byte index)
+        {
+            return Players[index].Name;
         }
         #endregion        
     }
