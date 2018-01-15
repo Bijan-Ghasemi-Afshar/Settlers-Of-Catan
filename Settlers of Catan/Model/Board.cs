@@ -7,18 +7,20 @@ namespace Settlers_of_Catan.Model
 {
     class Board
     {
+        #region Fields
+
         public Tile[] Tiles { get; set; }
         public const byte NumberOfTiles = 19;
 
-    public Board()
+        #endregion
+
+        #region Constructor
+
+        public Board()
         {
             Tiles = new Tile[NumberOfTiles];
         }
 
-        // Methods
-        public void AddTileToBoard(Tile.Type tileType, byte tileNumber, byte tilePosition)
-        {
-            Tiles[tilePosition] = new Tile(tileType, tileNumber);
-        }
+        #endregion        
     }
 }

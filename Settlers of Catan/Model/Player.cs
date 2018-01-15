@@ -7,6 +7,8 @@ namespace Settlers_of_Catan.Model
 {
     class Player
     {
+        #region Fields
+
         public string Name { get; set; }
         public PiecePack PackOfPiece { get; set; }
         public byte Points { get; set; }
@@ -17,10 +19,16 @@ namespace Settlers_of_Catan.Model
         public byte Lumber { get; set; }
         public byte Nothing { get; set; }
 
+        #endregion
+
+        #region Constructor
+
         public Player(string name)
         {
             this.Name = name;
             PackOfPiece = new PiecePack();
         }
+
+        #endregion
     }
 }

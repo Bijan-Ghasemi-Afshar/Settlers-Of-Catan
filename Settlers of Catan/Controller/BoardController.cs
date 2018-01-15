@@ -8,8 +8,15 @@ namespace Settlers_of_Catan.Controller
 {
     class BoardController
     {
+        #region Fields
+
         private Board _board;
         private BoardView _boardView;
+        private TileController _tileController;
+
+        #endregion
+
+        #region Constructor
 
         public BoardController()
         {
@@ -17,19 +24,33 @@ namespace Settlers_of_Catan.Controller
             _boardView = new BoardView();
         }
 
+        #endregion
+
+        #region Controller Methods
+
         // Controller Methods
         public void CreateBoard()
-        {            
+        {
             Random random = new Random();
-            for (byte i=0; i< Board.NumberOfTiles; i++)
-            {                
+            Tile tileContainer;
+            for (byte i = 0; i < Board.NumberOfTiles; i++)
+            {
                 byte RandomNumberTileType = (byte)random.Next(0, 5);
                 byte RandomNumberTilePosition = (byte)random.Next(0, 19);
                 byte RandomNumberTileNumber = (byte)random.Next(2, 13);
 
-                _board.AddTileToBoard((Tile.Type)RandomNumberTileType, RandomNumberTileNumber, i);
-            }            
-        }        
+                tileContainer = _tileController.CreateTile((Tile.Type)RandomNumberTileType, RandomNumberTileNumber, i);
+                AddTileToBoard(tileContainer, RandomNumberTilePosition);                
+            }
+            
+        }
+
+        // Add Tile To Board
+        public void AddTileToBoard(Tile tile, byte tilePosition)
+        {
+            _board.Tiles[tilePosition] = tile;
+            _tileController.SetAdjacentTiles(tile);
+        }
 
         // Print Board
         public void PrintBoard()
@@ -38,5 +59,7 @@ namespace Settlers_of_Catan.Controller
             _boardView.PrintBoard(_board.Tiles);
             _boardView.PrintMessage("\n");
         }
+
+        #endregion
     }
 }
