@@ -6,7 +6,8 @@ using Settlers_of_Catan.Model;
 namespace Settlers_of_Catan.Controller
 {
     class TileController
-    {
+    {        
+
         #region Controller Methods
 
         // Create Tile
@@ -15,12 +16,27 @@ namespace Settlers_of_Catan.Controller
             return new Tile(tileType, tileNumber, tilePosition); 
         }
 
-        // Set Tile Adjacent Corners 
-        public void SetAdjacentTiles(Tile tile)
+        // Set Tile Adjacent Sides 
+        public void SetAdjacentTiles(Tile tile, Tile[] tiles)
         {
-            // To be written
+            // To be continued...
+
+            // If this is the tile at the center
+            if (tile.TilePosition == 18)
+            {
+                byte tileSide = 0;
+                for(byte i=12; i<18; i++)
+                {
+                    tile.TileAndSide[tileSide] = tiles[i];
+                    tileSide++;
+                }
+            }
+
+            // If this is not the tile at the center...
+
         }
 
         #endregion
+
     }
 }

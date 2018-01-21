@@ -33,23 +33,24 @@ namespace Settlers_of_Catan.Controller
         public void Launcher()
         {            
             // Creating the board
-            boardController.CreateBoard();
-            boardController.PrintBoard();                     
+            boardController.CreateBoard();            
+            boardController.PrintBoard();
+            boardController.SetTileConnection();
 
             // Adding the players
-            playerController.AddPlayers();
-            playerController.PrintPlayers();
+            //playerController.AddPlayers();
+            //playerController.PrintPlayers();
 
             // Reorder players
-            playerController.ReorderPlayers();
+            //playerController.ReorderPlayers();
 
             // Set up game
-            GameSetup();
+            //GameSetup();
 
             // Run the game
-            GameRunner();
+            //GameRunner();
         }
-                
+
         // Game Set up
         public void GameSetup()
         {            

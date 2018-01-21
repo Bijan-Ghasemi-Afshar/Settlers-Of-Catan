@@ -14,7 +14,7 @@ namespace Settlers_of_Catan.View
         }
 
         public void PrintBoard(Tile[] tiles)
-        {
+        {            
             byte counter = 0;
             foreach (Tile tile in tiles)
             {
@@ -23,5 +23,14 @@ namespace Settlers_of_Catan.View
             }
         }        
 
+        // For testing purposes
+        public void PrintTileAdjacentTiles(Tile tile)
+        {
+            Console.WriteLine("\nTile Number: " + tile.TilePosition + " adjacent tiles");
+            for (int i=0; i<tile.TileAndSide.Length; i++)
+            {
+                Console.WriteLine("Side: " + i + "    Tile Position: " + tile.TileAndSide[i].TilePosition + "    Tile Type: " + tile.TileAndSide[i].TileType);
+            }
+        }
     }
 }
