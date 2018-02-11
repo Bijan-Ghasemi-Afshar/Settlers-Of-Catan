@@ -60,15 +60,36 @@ namespace Settlers_of_Catan.Controller
         // Set Tiles Adjacent to each other 
         public void SetTileConnection()
         {
-            // To be continued...
-            for (int i= (Board.NumberOfTiles-1); i>=0; i--)
+            
+            for (int i = (Board.NumberOfTiles - 1); i >= 0; i--)
             {
                 _tileController.SetAdjacentTiles(_board.Tiles[i], _board.Tiles);
-                Console.WriteLine(i + " Set Adjacent Tiles was called");                
             }
-            // The Below has to be REMOVED or CHANGED
-            _boardView.PrintTileAdjacentTiles(_board.Tiles[18]);
 
+            for (int i = (Board.NumberOfTiles - 1); i >= 0; i--)
+            {
+                _boardView.PrintTileAdjacentTiles(_board.Tiles[i]);
+            }
+
+            #region Testing the setadjacenttile method in case of fixing bugs
+            // THIS IS FOR TESTING PURPOSES, THE ABOVE NEEDS TO BE FIXED
+            //_tileController.SetAdjacentTiles(_board.Tiles[5], _board.Tiles);
+            //_tileController.SetAdjacentTiles(_board.Tiles[12], _board.Tiles);
+            //_tileController.SetAdjacentTiles(_board.Tiles[13], _board.Tiles);           
+            //_tileController.SetAdjacentTiles(_board.Tiles[0], _board.Tiles);
+            //_tileController.SetAdjacentTiles(_board.Tiles[1], _board.Tiles);
+            //_tileController.SetAdjacentTiles(_board.Tiles[2], _board.Tiles);
+            //_tileController.SetAdjacentTiles(_board.Tiles[3], _board.Tiles);
+
+            // The Below has to be REMOVED or CHANGED
+            //_boardView.PrintTileAdjacentTiles(_board.Tilesk[5]);
+            //_boardView.PrintTileAdjacentTiles(_board.Tiles[12]);
+            //_boardView.PrintTileAdjacentTiles(_board.Tiles[13]);
+            //_boardView.PrintTileAdjacentTiles(_board.Tiles[0]);
+            //_boardView.PrintTileAdjacentTiles(_board.Tiles[1]);
+            //_boardView.PrintTileAdjacentTiles(_board.Tiles[2]);
+            //_boardView.PrintTileAdjacentTiles(_board.Tiles[3]);
+            #endregion            
         }
 
         // Print Board

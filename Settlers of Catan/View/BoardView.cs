@@ -29,7 +29,11 @@ namespace Settlers_of_Catan.View
             Console.WriteLine("\nTile Number: " + tile.TilePosition + " adjacent tiles");
             for (int i=0; i<tile.TileAndSide.Length; i++)
             {
-                Console.WriteLine("Side: " + i + "    Tile Position: " + tile.TileAndSide[i].TilePosition + "    Tile Type: " + tile.TileAndSide[i].TileType);
+                if(tile.TileAndSide[i] != null)
+                    Console.WriteLine("Side: " + i + "    Tile Position: " + tile.TileAndSide[i].TilePosition + "    Tile Type: " + tile.TileAndSide[i].TileType);
+                else
+                    Console.WriteLine("Side: " + i + "    Tile Position: null    Tile Type: null");
+
             }
         }
     }
