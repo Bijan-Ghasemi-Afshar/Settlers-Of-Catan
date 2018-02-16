@@ -38,17 +38,17 @@ namespace Settlers_of_Catan.Controller
             boardController.SetTileConnection();
 
             // Adding the players
-            //playerController.AddPlayers();
-            //playerController.PrintPlayers();
+            playerController.AddPlayers();
+            playerController.PrintPlayers();
 
             // Reorder players
-            //playerController.ReorderPlayers();
+            playerController.ReorderPlayers();
 
             // Set up game
-            //GameSetup();
+            GameSetup();
 
             // Run the game
-            //GameRunner();
+            GameRunner();
         }
 
         // Game Set up

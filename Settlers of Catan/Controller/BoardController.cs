@@ -66,10 +66,11 @@ namespace Settlers_of_Catan.Controller
                 _tileController.SetAdjacentTiles(_board.Tiles[i], _board.Tiles);
             }
 
-            for (int i = (Board.NumberOfTiles - 1); i >= 0; i--)
-            {
-                _boardView.PrintTileAdjacentTiles(_board.Tiles[i]);
-            }
+            // This prints the tiles with associated adjacent tiles to it
+            //for (int i = (Board.NumberOfTiles - 1); i >= 0; i--)
+            //{
+            //    _boardView.PrintTileAdjacentTiles(_board.Tiles[i]);
+            //}
 
             #region Testing the setadjacenttile method in case of fixing bugs
             // THIS IS FOR TESTING PURPOSES, THE ABOVE NEEDS TO BE FIXED

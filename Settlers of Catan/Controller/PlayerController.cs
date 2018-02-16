@@ -69,11 +69,14 @@ namespace Settlers_of_Catan.Controller
             {
                 do
                 {
-
-                    PlayerView.AskForPlayerName((byte)(i + 1));
+                    // Getting the name of the player                    
                     try
                     {
-                        NameOfThePlayer = Console.ReadLine();
+                        do
+                        {
+                            PlayerView.AskForPlayerName((byte)(i + 1));
+                            NameOfThePlayer = Console.ReadLine();
+                        } while (string.IsNullOrEmpty(NameOfThePlayer));                        
                     }
                     catch (Exception e)
                     {
